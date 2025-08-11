@@ -1,0 +1,19 @@
+import banner from '../assets/images/banner.svg';
+import HeadSection from './HeadSection';
+
+const Banner = () => {
+    return (
+        <div className="w-full flex items-center justify-between md:h-[500px] bg-gradient-to-b from-grad-start to-grad-end py-[80px] md:px-[120px] px-5">
+            <div className="flex flex-col gap-12">
+                <HeadSection title="Let's Build Together" description="Contact us If you have anything in mind, We will help you build." isDark={false} hasButton={false} />
+                <div className="flex items-center gap-6">
+                    <button className="bg-primary text-secondary w-[188px] h-[50px] rounded-sm font-bold cursor-pointer">Contact Us</button>
+                    <button className="h-[50px] border w-[188px] border-primary rounded-sm font-bold cursor-pointer">Available for  Consultation</button>
+                </div>
+            </div>
+            <img src={banner} alt="banner" className="w-[25%] md:block hidden" />
+        </div>
+    )
+}
+
+export default Banner
