@@ -25,7 +25,7 @@ const Navbar = ({ onSignUpClick }: NavbarProps) => {
     return (
         <div className="w-full flex items-center justify-between md:px-[120px] px-5 absolute md:top-12 top-5">
             <h1 className="font-bold text-xl cursor-pointer">
-                <span className="text-yellow-400">SERENA</span>
+                <span className="text-yellow-400">O.L.K</span>
                 <span className="text-white"> PRICE CONSTRUCTION</span>
             </h1>
             <div className="flex items-center gap-12">
