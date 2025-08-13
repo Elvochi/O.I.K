@@ -31,7 +31,7 @@ export const services: Service[] = [
         id: 3,
         icon: building,
         title: "Renovations",
-        description: "Quality Refurbishment, renovation, and modernization of your  existing properties",
+        description: "Quality Refurbishment, renovation, and modernization of your existing properties",
     },
     {
         id: 4,
@@ -117,7 +117,7 @@ export const members: Member[] = [
         id: 1,
         role: "Civil Engineer",
         image: member1,
-        name: "Ethan Walker",
+        name: "Kevin Issac",
     },
     {
         id: 2,
@@ -151,7 +151,7 @@ export const members: Member[] = [
     },
 ];
 
-export const navItems: string[] = ["About Us", "Projects", "Services", "Our Team"];
+export const navItems: string[] = ["About Us", "Projects", "Services", "Our Team", "Contact"];
 
 export const stats: Stat[] = [
     { value: "600+", text: "Worked with 600+ big companies" },
@@ -168,6 +168,7 @@ export const footerLinks: FooterSection[] = [
             { id: 2, name: "Projects", link: "/" },
             { id: 3, name: "Services", link: "/" },
             { id: 4, name: "Our Team", link: "/" },
+            { id: 5, name: "Contact", link: "/" },
         ],
     },
     {
@@ -190,4 +191,4 @@ export const footerLinks: FooterSection[] = [
             { id: 4, name: "Policies", link: "/" },
         ],
     },
-]
+];

@@ -8,6 +8,7 @@ import Members from "./components/Members"
 import Projects from "./components/Projects"
 import Services from "./components/Services"
 import SignUpPage from "./components/SignUpPage"
+import Contact from "./components/Contact"
 
 const App = () => {
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
@@ -29,6 +30,7 @@ const App = () => {
       <Feedbacks />
       <Members />
       <Banner />
+      <Contact />
       <Footer />
       <SignUpPage isOpen={isSignUpOpen} onClose={handleSignUpClose} />
     </div>
