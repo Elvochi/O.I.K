@@ -11,7 +11,7 @@ import Services from "./components/Services";
 import SignUpPage from "./components/SignUpPage";
 import Contact from "./components/Contact";
 import CategoryPage from "./components/CategoryPage";
-import ServicePage from "./components/ServicePage"; // ADD THIS IMPORT
+import ServicePage from "./components/ServicePage";
 
 const App = () => {
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
@@ -40,6 +40,8 @@ const App = () => {
         
         {/* NEW ROUTE - Add this line */}
         <Route path="/services/:id" element={<ServicePage />} />
+
+        <Route path="/contact" element={<Contact />} />
 
       </Routes>
       

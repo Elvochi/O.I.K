@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="w-full flex md:items-center items-start justify-between md:px-[120px] px-5 md:gap-[100px] gap-16 md:flex-row flex-col">
                 <div className="flex flex-col gap-2">
                     <span className='w-full flex text-yellow-400 justify-center font-bold'>
-                        O.L.K
+                        O.I.K
                     </span>
                     <span className='w-full flex text-black justify-center font-bold'>
                         CONSULATANTS L.T.D
@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
             <div className="w-full flex items-center justify-center border-t border-gray-border h-[74px]">
                 <span className="text-gray-light font-bold">
-                    Copyright © 2025 ADVENTOUR.
+                    Copyright © 2025.
                 </span>
             </div>
         </div>

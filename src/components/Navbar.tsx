@@ -1,27 +1,45 @@
 import { navItems } from "../data";
+import { useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
     onSignUpClick: () => void;
 }
 
 const Navbar = ({ onSignUpClick }: NavbarProps) => {
+    const navigate = useNavigate();
     const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
+        if (sectionId === 'contact') {
+            navigate('/#contact'); // Navigate first
+            setTimeout(() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                    const offset = 100;
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: elementPosition - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        } else {
+            // Existing scroll behavior for other sections
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     };
 
     const navMap: { [key: string]: string } = {
-        "About Us": "about-us",
-        "Projects": "projects", 
-        "Services": "services",
-        "Our Team": "our-team",
-        "Contacts": "contact"
-    };
+    "About Us": "about-us",
+    "Projects": "projects", 
+    "Services": "services",
+    "Our Team": "our-team",
+    "Contacts": "contact" 
+     };
 
     return (
         <div className="w-full flex items-center justify-between md:px-[120px] px-5 absolute md:top-12 top-5">
