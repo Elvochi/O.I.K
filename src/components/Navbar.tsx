@@ -9,7 +9,7 @@ const Navbar = ({ onSignUpClick }: NavbarProps) => {
     const navigate = useNavigate();
     const scrollToSection = (sectionId: string) => {
         if (sectionId === 'contact') {
-            navigate('/#contact'); // Navigate first
+            navigate('/#contact');
             setTimeout(() => {
                 const element = document.getElementById('contact');
                 if (element) {
