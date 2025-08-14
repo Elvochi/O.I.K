@@ -1,10 +1,13 @@
 import { projects } from "../data";
 import { chunkArray } from "../helpers";
 import HeadSection from "./HeadSection";
+import { useNavigate } from "react-router-dom";
 import type { Project } from "../types";
 
 const Projects = () => {
     const projectsChunks = chunkArray(projects, 2);
+    const navigate = useNavigate();
+
     return (
         <div id="projects" className="w-full md:py-[110px] py-24 md:px-[120px] px-5 flex flex-col gap-12 bg-gradient-to-b from-grad-start to-grad-end">
             <HeadSection title="Recent projects" description="Recent Projects Showcasing Our Craftsmanship and Innovation in Construction" isDark={false} />
@@ -22,7 +25,12 @@ const Projects = () => {
                                             <span className="text-gray-light font-bold">{project.category}</span>
                                             <span className="text-gray-light font-bold">{project.date}</span>
                                         </div>
-                                        <div className="text-primary border border-primary rounded-sm w-[72px] h-[36px] md:flex hidden items-center justify-center font-bold bg-[#fefaf2] cursor-pointer">View</div>
+                                        <div 
+                                            onClick={() => navigate(`/projects/${project.category}`)} 
+                                            className="text-primary border border-primary rounded-sm w-[72px] h-[36px] md:flex hidden items-center justify-center font-bold bg-[#fefaf2] cursor-pointer"
+                                        >
+                                            View
+                                        </div>
                                     </div>
                                 </div>
                             </div>

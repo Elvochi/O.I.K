@@ -14,7 +14,7 @@ const About = () => {
                     Take A Glimpse into Our Construction Voyage
                 </h2>
                 <p className="text-gray-light font-bold max-w-[580px] leading-[30px]">
-                    A Trailblazer In The Construction Industry. Our Journey Is One Of Passion, Dedication, And A Relentless Pursuit Of Excellence.
+                    A Trailblazer In The Construction Industry. Our Journey Is One Of Passion, Dedication, And A Relentless Pursuit Of Excellence. Our skilled team is committed to excellence, safety, and client satisfaction, ensuring every project is completed on time and to the highest standards.
                 </p>
                 <div className="flex items-center gap-8">
                     {stats.map((stat: Stat, index: number) => (

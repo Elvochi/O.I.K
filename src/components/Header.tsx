@@ -46,13 +46,19 @@ const Header = ({ onSignUpClick }: HeaderProps) => {
                         <span className="text-gray font-bold">All our projects are certified by experts.</span>
                     </div>
                 </div>
-                <div className="flex flex-col items-center">
-                    <img src={hero} alt="hero" className="xl:scale-60" />
-                    <div className="bg-secondary border-3 border-primary w-[278px] h-[128px] rounded-xl md:flex hidden flex-col gap-2 items-center justify-center">
-                        <span className="font-bold text-5xl">Very</span>
-                        <span className="font-bold text-xl">Capable Engineers</span>
-                    </div>
-                </div>
+                <div className="flex flex-col md:flex-row items-center gap-8">
+  <img 
+    src={hero} 
+    alt="hero" 
+    className="w-full max-w-md border-[5px] border-yellow-400 rounded-2xl shadow-2xl hover:shadow-yellow-200 transition-shadow"
+  />
+  
+  <div className="bg-gradient-to-br from-secondary to-secondary-dark border-4 border-primary w-[300px] h-[140px] rounded-2xl flex flex-col items-center justify-center space-y-2 p-4 backdrop-blur-sm">
+    <span className="font-bold text-5xl text-white drop-shadow-md">Certified</span>
+    <span className="font-semibold text-2xl text-yellow-200"></span>
+    <span className="font-semibold text-2xl text-yellow-200">Capable Engineers</span>
+  </div>
+</div>
             </div>
         </div>
     )

@@ -6,10 +6,13 @@ export interface Member {
 }
 
 export interface Service {
-    id: string | number;
-    title: string;
-    description: string;
-    icon: string;
+  id: number | string;
+  title: string;
+  description: string;
+  icon: string;
+  image?: string;              
+  fullDescription?: string;    
+  features?: string[];         
 }
 
 export interface Project {
