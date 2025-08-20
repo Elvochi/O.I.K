@@ -7,7 +7,12 @@
     "dev": "nodemon server.js",
     "test": "jest"
   },
-  "keywords": ["construction", "api", "mysql", "express"],
+  "keywords": [
+    "construction",
+    "api",
+    "mysql",
+    "express"
+  ],
   "author": "Elvis",
   "license": "MIT",
   "description": "Backend API for Construction Company Website",
@@ -19,7 +24,8 @@
     "express-rate-limit": "^8.0.1",
     "express-validator": "^7.2.1",
     "helmet": "^8.1.0",
-    "mysql2": "^3.14.2"
+    "mysql2": "^3.14.2",
+    "nodemailer": "^7.0.5"
   },
   "devDependencies": {
     "jest": "^30.0.5",

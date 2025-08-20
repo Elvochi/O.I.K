@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+const { sendSignupNotification, sendUserConfirmation } = require('./emailService');
 require('dotenv').config();
 
 const app = express();
@@ -78,11 +79,11 @@ async function initializeDatabase() {
     console.error('Database initialization error:', error);
 
     if (error.code === 'ER_ACCESS_DENIED_ERROR') {
-      console.error('❌ Access denied. Please check your MySQL username and password in the .env file');
+      console.error('⚠️ Access denied. Please check your MySQL username and password in the .env file');
     } else if (error.code === 'ECONNREFUSED') {
-      console.error('❌ Connection refused. Please make sure MySQL server is running');
+      console.error('⚠️ Connection refused. Please make sure MySQL server is running');
     } else if (error.code === 'ER_BAD_DB_ERROR') {
-      console.error('❌ Database error. This should be handled now, but if you see this, there might be a permission issue');
+      console.error('⚠️ Database error. This should be handled now, but if you see this, there might be a permission issue');
     }
     
     process.exit(1);
@@ -97,7 +98,7 @@ async function testConnection() {
     console.log('✅ Database connection successful');
     return true;
   } catch (error) {
-    console.error('❌ Database connection failed:', error.message);
+    console.error('⚠️ Database connection failed:', error.message);
     return false;
   }
 }
@@ -113,12 +114,14 @@ app.get('/api/health', async (req, res) => {
 
 app.post('/api/signup', async (req, res) => {
   const { firstName, lastName, email, phone, company, projectType, message } = req.body;
+  
   if (!firstName || !lastName || !email || !phone || !projectType) {
     return res.status(400).json({
       success: false,
       message: 'Missing required fields'
     });
   }
+  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({
@@ -148,6 +151,7 @@ app.post('/api/signup', async (req, res) => {
         message: 'Email already registered'
       });
     }
+    
     const insertQuery = `
       INSERT INTO signups (first_name, last_name, email, phone, company, project_type, message)
       VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -165,6 +169,35 @@ app.post('/api/signup', async (req, res) => {
     
     connection.release();
 
+    // Prepare signup data for email
+    const signupData = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      company,
+      projectType,
+      message
+    };
+
+    // Send notification email to admin (ochiengelvis@gmail.com)
+    console.log('📧 Sending signup notification email...');
+    const emailResult = await sendSignupNotification(signupData);
+    
+    if (!emailResult.success) {
+      console.error('⚠️ Failed to send notification email:', emailResult.error);
+      // Don't fail the signup if email fails, just log the error
+    }
+
+    // Optionally send confirmation email to user
+    try {
+      console.log('📧 Sending confirmation email to user...');
+      await sendUserConfirmation(signupData);
+    } catch (confirmationError) {
+      console.error('⚠️ Failed to send user confirmation:', confirmationError);
+      // Don't fail if confirmation email fails
+    }
+
     res.status(201).json({
       success: true,
       message: 'Sign up successful',
@@ -175,6 +208,7 @@ app.post('/api/signup', async (req, res) => {
         email
       }
     });
+    
     console.log(`✅ New signup: ${firstName} ${lastName} - ${email} - ${projectType}`);
     
   } catch (error) {
@@ -334,6 +368,7 @@ async function startServer() {
   app.listen(PORT, () => {
     console.log(`🚀 Server is running on port ${PORT}`);
     console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`📧 Email notifications enabled for: ${process.env.NOTIFICATION_EMAIL}`);
   });
 }
 
