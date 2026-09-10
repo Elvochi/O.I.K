@@ -52,9 +52,9 @@ const handleContactClick = () => {
               <img 
                 src={service.image || service.icon} 
                 alt={service.title} 
-                className="w-full h-auto max-h-[400px] object-cover rounded-sm"
+                className="w-full h-auto max-h-[260px] md:max-h-[400px] object-cover rounded-sm"
               />
-              <div className="bg-white p-8 rounded-sm">
+              <div className="bg-white p-5 md:p-8 rounded-sm">
                 <h3 className="text-secondary font-bold text-2xl mb-4">Service Details</h3>
                 <p className="text-gray-light">
                   {service.fullDescription || service.description}
@@ -63,7 +63,7 @@ const handleContactClick = () => {
             </div>
 
             <div className="flex flex-col gap-8">
-              <div className="bg-white p-8 rounded-sm">
+              <div className="bg-white p-5 md:p-8 rounded-sm">
                 <h3 className="text-secondary font-bold text-2xl mb-4">What We Offer</h3>
                 <ul className="list-disc pl-5 space-y-3 text-gray-light">
                   {(service.features || ["No features listed"]).map((feature: string, index: number) => (
@@ -72,7 +72,7 @@ const handleContactClick = () => {
                 </ul>
               </div>
 
-              <div className="bg-white p-8 rounded-sm">
+              <div className="bg-white p-5 md:p-8 rounded-sm">
                 <h3 className="text-secondary font-bold text-2xl mb-4">Get Started</h3>
                 <p className="text-gray-light mb-6">
                   Ready to begin your {service.title} project?

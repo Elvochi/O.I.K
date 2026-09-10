@@ -39,7 +39,7 @@ const CategoryPage = () => {
         )}
         {/* Placeholder for additional images */}
         <div className="flex flex-col gap-4">
-          <div className="w-full h-[300px] bg-gray-light flex items-center justify-center">
+          <div className="w-full h-[200px] md:h-[300px] bg-gray-light flex items-center justify-center">
             <span className="text-secondary font-bold">Add Image Here</span>
           </div>
           <p className="text-gray-light">Additional {category} image placeholder</p>

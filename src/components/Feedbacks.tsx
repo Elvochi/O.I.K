@@ -6,9 +6,9 @@ const Feedbacks = () => {
     return (
         <div className="w-full md:pt-[120px] pt-24 md:pb-[60px] pb-24 md:px-[120px] px-5 flex flex-col gap-12">
             <HeadSection title="Customer feedbacks" description="Don't just take our word for it. hear directly from our valued clients" />
-            <div className="w-full flex md:flex-row flex-col items-center justify-between gap-6">
-                {feedbacks.map((feedback: Feedback) => (
-                    <div key={feedback.id} className="w-full flex flex-col md:items-start items-center gap-6">
+            <div className="w-full flex md:flex-row flex-col items-center justify-between gap-10 md:gap-6">
+    {feedbacks.map((feedback: Feedback) => (
+        <div key={feedback.id} className="w-full flex flex-col md:items-start items-center gap-4 md:gap-6 pb-10 md:pb-0 border-b md:border-b-0 border-gray-border last:border-b-0 last:pb-0">
                         <img src={feedback.image} alt={feedback.name} className="w-[72px] h-[72px]" />
                         <p className="text-gray-light font-bold max-w-[400px] md:text-left text-center">
                             {feedback.feedback}

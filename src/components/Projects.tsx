@@ -15,9 +15,9 @@ const Projects = () => {
                 {projectsChunks.map((chunk, index) => (
                     <div key={index} className="w-full flex md:flex-row flex-col items-center justify-between gap-8">
                         {chunk.map((project: Project) => (
-                            <div key={project.id} className="w-full flex items-center gap-8 p-8 bg-white">
-                                <img src={project.image} alt={project.title} className="w-[184px] h-[196px]" />
-                                <div className="flex flex-col gap-3">
+                            <div key={project.id} className="w-full flex flex-col sm:flex-row items-center gap-6 sm:gap-8 p-5 sm:p-8 bg-white">
+                             <img src={project.image} alt={project.title} className="w-[140px] h-[150px] sm:w-[184px] sm:h-[196px] shrink-0" />
+                              <div className="flex flex-col gap-3 items-center sm:items-start text-center sm:text-left w-full">
                                     <span className="text-secondary font-bold text-2xl">{project.title}</span>
                                     <p className="text-gray-light font-bold">{project.description}</p>
                                     <div className="flex items-center justify-between mt-6">
@@ -27,10 +27,10 @@ const Projects = () => {
                                         </div>
                                         <div 
                                             onClick={() => navigate(`/projects/${project.category}`)} 
-                                            className="text-primary border border-primary rounded-sm w-[72px] h-[36px] md:flex hidden items-center justify-center font-bold bg-[#fefaf2] cursor-pointer"
-                                        >
-                                            View
-                                        </div>
+                                            className="text-primary border border-primary rounded-sm w-[72px] h-[36px] flex items-center justify-center font-bold bg-[#fefaf2] cursor-pointer shrink-0"
+>
+                                         View
+                                     </div>
                                     </div>
                                 </div>
                             </div>

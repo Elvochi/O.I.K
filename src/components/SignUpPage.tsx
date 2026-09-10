@@ -101,7 +101,7 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onClose, isOpen }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-white border-b border-gray-border p-6 flex items-center justify-between">
+        <div className="sticky top-0 bg-white border-b border-gray-border p-4 md:p-6 flex items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold text-secondary">Join Our Construction Journey</h2>
             <p className="text-gray-light font-bold mt-1">Let's build something amazing together</p>
@@ -114,7 +114,7 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onClose, isOpen }) => {
           </button>
         </div>
         
-        <div className="p-6 space-y-6">
+        <div className="p-4 md:p-6 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-secondary font-bold mb-2">First Name *</label>
@@ -233,23 +233,23 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ onClose, isOpen }) => {
             </div>
           </div>
 
-          <div className="flex gap-4 pt-4">
-            <button
-              type="button"
-              onClick={onClose}
-              className="flex-1 h-12 border border-gray-border rounded-lg font-bold text-gray-light hover:text-secondary transition-colors duration-200"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-              className="flex-1 bg-primary text-secondary h-12 rounded-lg font-bold hover:bg-opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? 'Submitting...' : 'Sign Up & Start Building'}
-            </button>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+  <button
+    type="button"
+    onClick={onClose}
+    className="w-full sm:flex-1 h-12 border border-gray-border rounded-lg font-bold text-gray-light hover:text-secondary transition-colors duration-200"
+  >
+    Cancel
+  </button>
+  <button
+    type="button"
+    onClick={handleSubmit}
+    disabled={isSubmitting}
+    className="w-full sm:flex-1 bg-primary text-secondary h-12 rounded-lg font-bold hover:bg-opacity-90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    {isSubmitting ? 'Submitting...' : 'Sign Up & Start Building'}
+  </button>
+         </div>
         </div>
       </div>
     </div>

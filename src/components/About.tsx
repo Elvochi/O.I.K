@@ -20,7 +20,7 @@ const About = () => {
                     {stats.map((stat: Stat, index: number) => (
                         <div key={index} className="flex flex-col gap-2">
                             <span className="text-secondary text-4xl font-bold">{stat.value}</span>
-                            <span className="text-gray-light font-bold text-sm md:max-w-[160px]">{stat.text}</span>
+                            <span className="text-gray-light font-bold text-sm md:max-w-[160px] max-w-[120px]">{stat.text}"{stat.text}</span>
                         </div>
                     ))}
                 </div>

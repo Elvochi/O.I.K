@@ -23,7 +23,7 @@ const scrollToSection = (sectionId: string) => {
             <Navbar onSignUpClick={onSignUpClick} />
             <div className="w-full md:pl-[120px] md:pr-[215px] px-5 flex md:flex-row flex-col md:gap-0 gap-12 md:mb-0 mb-10 items-center justify-between md:mt-0 mt-24">
                 <div className="flex flex-col gap-8">
-                    <div className="font-bold text-7xl max-w-[590px] leading-[90px]">
+                    <div className="font-bold text-4xl md:text-7xl max-w-[590px] leading-tight md:leading-[90px]">
                         Crafting Architectural Wonders
                     </div>
                     <span className="text-gray font-bold max-w-[450px] leading-[30px]">
